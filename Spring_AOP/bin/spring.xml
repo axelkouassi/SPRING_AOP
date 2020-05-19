@@ -12,11 +12,11 @@
 	<aop:aspectj-autoproxy/>
 	
 	<bean name="triangle" class="com.axel.model.Triangle">
-	    <property name="name" value="Triangle Name."/>
+	    <!-- <property name="name" value="Triangle Name."/> -->
 	</bean>
 	
 	<bean name="circle" class="com.axel.model.Circle">
-	    <property name="name" value="Circle Name."/>
+	    <!-- <property name="name" value="Circle Name."/> -->
 	</bean>
 	
 	<bean name="shapeService" class="com.axel.service.ShapeService" autowire="byName"/>
