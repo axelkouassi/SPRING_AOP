@@ -10,15 +10,15 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
-@Aspect
+
 public class LoggingAspect {
 	
-	@Before("allGetters() && allCircleMethods()")
+	/*@Before("allGetters() && allCircleMethods()")
 	public void loggingAdvice(JoinPoint joinpoint) {
 		System.out.println(joinpoint.toString());
 	}
 	
-	/*@Before("allGetters()")
+	@Before("allGetters()")
 	public void secondAdvice() {
 		System.out.println("Second Advice executed.");
 	}*/
@@ -26,7 +26,7 @@ public class LoggingAspect {
 	
 	//@Before("args(name)")
 	//@After("args(name)")
-	@AfterReturning(pointcut="args(name)", returning="returnString")
+	/*@AfterReturning(pointcut="args(name)", returning="returnString")
 	public void stringArgumentMethods(String name, Object returnString) {
 		System.out.println("A method that takes String arguments has been called. The value is " + name + ". The output value is: " + returnString);
 	}
@@ -34,9 +34,10 @@ public class LoggingAspect {
 	@AfterThrowing(pointcut="args(name)", throwing="ex")
 	public void exceptionAdvice(String name, RuntimeException ex) {
 		System.out.println("An exception " + ex + " has been thrown.");
-	}
+	}*/
 	
-	@Around("@annotation(com.axel.aspect.Loggable)")
+	//@Around("@annotation(com.axel.aspect.Loggable)")
+	//@Around("allGetters()")
 	public Object myAroundAdvice(ProceedingJoinPoint proceedingJointPoint) {
 		
 		Object returnValue = null;
@@ -53,11 +54,15 @@ public class LoggingAspect {
 		return returnValue;
 	}
 	
-	@Pointcut("execution(* get*())")
-	public void allGetters() {}
+	/*@Pointcut("execution(* get*())")
+	public void allGetters() {}*/
 	
 	//@Pointcut("execution(* * com.axel.model.Circle.*(..)")
-	@Pointcut("within(com.axel.model.Circle)")
-	public void allCircleMethods() {}
+	/*@Pointcut("within(com.axel.model.Circle)")
+	public void allCircleMethods() {}*/
+	
+	public void loggingAdvice() {
+		System.out.println("Logging from advice");
+	}
 
 }
