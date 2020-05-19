@@ -36,7 +36,7 @@ public class LoggingAspect {
 		System.out.println("An exception " + ex + " has been thrown.");
 	}
 	
-	@Around("allGetters()")
+	@Around("@annotation(com.axel.aspect.Loggable)")
 	public Object myAroundAdvice(ProceedingJoinPoint proceedingJointPoint) {
 		
 		Object returnValue = null;
@@ -45,7 +45,7 @@ public class LoggingAspect {
 			returnValue = proceedingJointPoint.proceed();
 			System.out.println("After Returning");
 		} catch (Throwable e) {
-			System.out.println("After throwing");;
+			System.out.println("After throwing");
 		}
 		
 		System.out.println("After Finally");

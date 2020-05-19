@@ -1,5 +1,6 @@
 package com.axel.service;
 
+import com.axel.aspect.Loggable;
 import com.axel.model.Circle;
 import com.axel.model.Triangle;
 
@@ -7,6 +8,8 @@ public class ShapeService {
 	
 	private Circle circle;
 	private Triangle triangle;
+	
+	@Loggable
 	public Circle getCircle() {
 		return circle;
 	}
